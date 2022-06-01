@@ -1,0 +1,11 @@
+https://www.strava.com/oauth/authorize?client_id=$86514&response_type=code&redirect_uri=http://localhost/exchange_token&approval_prompt=force&scope=read_all,profile:read_all,activity:read_all,profile:write,activity:write
+http://localhost/exchange_token?state=&code=532ff06ba0ebc98d30b28d10189238d74891bd94&scope=read,activity:write,activity:read_all,profile:write,profile:read_all,read_all
+curl -X POST https://www.strava.com/oauth/token \
+-F client_id=86514 \
+-F client_secret=fa55a5717af64ec12550f6fed514da28a3720ed1 \
+-F code=532ff06ba0ebc98d30b28d10189238d74891bd94 \
+-F grant_type=authorization_code
+python3(python) scripts/strava_sync.py 86514 fa55a5717af64ec12550f6fed514da28a3720ed1 59f43776c45a6448b518219992c9a0e06852c90d
+
+
+{"token_type":"Bearer","expires_at":1654095696,"expires_in":21600,"refresh_token":"59f43776c45a6448b518219992c9a0e06852c90d","access_token":"0b43873b7db09b7c167b0918b6d617e8b61cffcb","athlete":{"id":101592356,"username":null,"resource_state":2,"firstname":"Chen","lastname":"Michael","bio":null,"city":null,"state":null,"country":null,"sex":"M","premium":false,"summit":false,"created_at":"2022-04-16T05:09:11Z","updated_at":"2022-05-26T04:13:00Z","badge_type_id":0,"weight":0.0,"profile_medium":"https://d3nn82uaxijpm6.cloudfront.net/assets/avatar/athlete/medium-bee27e393b8559be0995b6573bcfde897d6af934dac8f392a6229295290e16dd.png","profile":"https://d3nn82uaxijpm6.cloudfront.net/assets/avatar/athlete/large-800a7033cc92b2a5548399e26b1ef42414dd1a9cb13b99454222d38d58fd28ef.png","friend":null,"follower":null}}
